@@ -8,24 +8,24 @@
 ```
 + 更新用户信息
 ```go
-	// 更新用户信息
-	 user := jmessage.UserInfo{
- 	    Username:"jostin",
-	 	  Nickname:"张三",
-	 	  Gender:1,
-	 }
-	 jmessage.UpdateuserInfo(user)
+// 更新用户信息
+ user := jmessage.UserInfo{
+    Username:"jostin",
+	  Nickname:"张三",
+	  Gender:1,
+ }
+ jmessage.UpdateuserInfo(user)
 ```
 + 获取用户信息
 ```go
-	 userInfo := jmessage.GetUserInfo("jostin")
+ userInfo := jmessage.GetUserInfo("jostin")
 ```
 + 获取在线状态
 ```go
-	 	res := jmessage.GetUserstat("jostin")
-	  fmt.Printf("%v",res.Login)
+res := jmessage.GetUserstat("jostin")
+fmt.Printf("%v",res.Login)
 ```
 + 更新用户密码
 ```go
-	jmessage.UpdateUserPassword("jostin","12345678")
+  jmessage.UpdateUserPassword("jostin","12345678")
 ```
