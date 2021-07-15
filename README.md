@@ -1,5 +1,10 @@
 # jiguang_go_sdk
 用golang实现的极光im的sdk
+```go
+import (
+"jiguang_go_sdk/jmessage"
+)
+```
 + 批量用户注册
 ```go
  users := make([]jmessage.UserInfo,0,0)
