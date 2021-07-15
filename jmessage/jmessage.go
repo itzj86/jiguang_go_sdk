@@ -15,6 +15,15 @@ func init() {
 	basic = base64.StdEncoding.EncodeToString([]byte("6605b7ef502f4a832e0540e3:4545d7aa275d461fd7ce03e4"))
 }
 
+type ResponseHttp struct {
+	Code    int64  `json:"code"`
+	Message string `json:"message"`
+}
+
+type RError struct {
+	Error ResponseHttp `json:"error"`
+}
+
 func (u UserInfo) Register() (rest string) { //(resp string,err error)
 	users := make([]UserInfo, 0)
 	user := append(users, u)

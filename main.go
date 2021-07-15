@@ -29,11 +29,14 @@ func main() {
 
 	// 获取用户信息
 	// userInfo := jmessage.GetUserInfo("jostin")
-	// fmt.Println(userInfo.Username)
+	// fmt.Println(userInfo)
 	// 获取在线状态
 	// res := jmessage.GetUserstat("jostin")
 	// fmt.Printf("%v",res.Login)
-	jmessage.UpdateUserPassword("jostin","12345678")
+	// jmessage.UpdateUserPassword("jostin","12345678")
+	// jmessage.DeleteUser("jostin")
+	// res := jmessage.DeleteUsers([]string{"jostin","marhal"})
+	// fmt.Println(res)
 
 
 }

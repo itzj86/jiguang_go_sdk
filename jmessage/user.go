@@ -65,8 +65,40 @@ func GetUserstat(username string) struct {
 	return rest
 }
 
-func UpdateUserPassword(username string ,password string){
-	res := put("/v1/users/"+username+"/password",strings.NewReader(string(password)))
-	// json.Unmarshal([]byte(res.String()), &rest)
-	fmt.Println(res)
+// 更新用户密码
+func UpdateUserPassword(username string, password string) bool {
+	var data = struct {
+		NewPassword string `json:"new_password"`
+	}{NewPassword: password}
+	sendData, _ := json.Marshal(data)
+	res := put("/v1/users/"+username+"/password", strings.NewReader(string(sendData)))
+	rest := RError{}
+	json.Unmarshal([]byte(res.String()), &rest)
+	if rest.Error.Code > 0 {
+		return false
+	}
+	return true
+}
+
+// 删除用户
+func DeleteUser(username string) bool {
+	res := delete("/v1/users/"+username, nil)
+	rest := RError{}
+	json.Unmarshal([]byte(res.String()), &rest)
+	if rest.Error.Code > 0 {
+		return false
+	}
+	return true
+}
+
+// 批量删除用户
+func DeleteUsers(usernames []string) bool {
+	sendData, _ := json.Marshal(usernames)
+	res := delete("/v1/users/", strings.NewReader(string(sendData)))
+	rest := RError{}
+	json.Unmarshal([]byte(res.String()), &rest)
+	if rest.Error.Code > 0 {
+		return false
+	}
+	return true
 }
